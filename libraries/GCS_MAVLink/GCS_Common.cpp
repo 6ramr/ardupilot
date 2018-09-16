@@ -1134,6 +1134,22 @@ void GCS_MAVLINK::send_raw_imu()
         mag.z);        
 }
 
+void GCS_MAVLINK::send_raw_ang()
+{
+    uint16_t x=1,y=2,z=3;
+
+    send_text(MAV_SEVERITY_INFO , "debug1");
+
+    mavlink_msg_raw_ang_send(
+        chan,
+        AP_HAL::millis(),
+        x,
+        y,
+        z);
+
+    send_text(MAV_SEVERITY_INFO, "debug2");
+}
+
 // sub overrides this to send on-board temperature
 void GCS_MAVLINK::send_scaled_pressure3()
 {
@@ -3064,6 +3080,11 @@ bool GCS_MAVLINK::try_send_message(const enum ap_message id)
     case MSG_RAW_IMU3:
         CHECK_PAYLOAD_SIZE(SENSOR_OFFSETS);
         send_sensor_offsets();
+        break;
+
+    case MSG_RAW_ANG:
+        CHECK_PAYLOAD_SIZE(RAW_ANG);
+        send_raw_ang();
         break;
 
     case MSG_SERVO_OUTPUT_RAW:

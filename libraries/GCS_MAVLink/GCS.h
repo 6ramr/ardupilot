@@ -48,6 +48,7 @@ enum ap_message : uint8_t {
     MSG_RAW_IMU1,
     MSG_RAW_IMU2,
     MSG_RAW_IMU3,
+    MSG_RAW_ANG,
     MSG_GPS_RAW,
     MSG_GPS_RTK,
     MSG_GPS2_RAW,
@@ -179,6 +180,7 @@ public:
     virtual void send_scaled_pressure3(); // allow sub to override this
     void send_scaled_pressure();
     void send_sensor_offsets();
+    void send_raw_ang();
     virtual void send_simstate() const;
     void send_ahrs();
     void send_battery2();
