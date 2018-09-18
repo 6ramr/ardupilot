@@ -142,6 +142,7 @@ public:
         STREAM_EXTRA3,
         STREAM_PARAMS,
         STREAM_ADSB,
+        STREAM_RAW_ANG,
         NUM_STREAMS
     };
 
