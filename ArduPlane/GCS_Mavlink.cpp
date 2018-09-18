@@ -599,7 +599,6 @@ const AP_Param::GroupInfo GCS_MAVLINK::var_info[] = {
     // @Increment: 1
     // @User: Advanced
     AP_GROUPINFO("ADSB",   9, GCS_MAVLINK, streamRates[9],  5),
-    AP_GROUPEND
 
     // @Param: RAW_ANG
     // @DisplayName: RAW_ANG stream rate to ground station
@@ -688,7 +687,7 @@ const struct GCS_MAVLINK::stream_entries GCS_MAVLINK::all_stream_entries[] = {
     MAV_STREAM_ENTRY(STREAM_EXTRA2),
     MAV_STREAM_ENTRY(STREAM_EXTRA3),
     MAV_STREAM_ENTRY(STREAM_ADSB),
-    MAV_STREAM_ENTRY(RAW_ANG),
+    MAV_STREAM_ENTRY(STREAM_RAW_ANG),
     MAV_STREAM_TERMINATOR // must have this at end of stream_entries
 };
 

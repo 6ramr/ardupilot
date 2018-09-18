@@ -175,7 +175,7 @@ void GCS_MAVLINK::handle_request_data_stream(mavlink_message_t *msg)
         rate = &streamRates[STREAM_EXTRA3];
         break;
     case MAV_DATA_STREAM_RAW_ANG:
-        rate = &streamRates[RAW_ANG];
+        rate = &streamRates[STREAM_RAW_ANG];
         break;
     }
 
