@@ -33,6 +33,7 @@
 const AP_Scheduler::Task Plane::scheduler_tasks[] = {
                            // Units:   Hz      us
     SCHED_TASK(ahrs_update,           400,    400),
+        SCHED_TASK(ang_update,           1,    400),
     SCHED_TASK(read_radio,             50,    100),
     SCHED_TASK(check_short_failsafe,   50,    100),
     SCHED_TASK(update_speed_height,    50,    200),
@@ -127,6 +128,12 @@ void Plane::update_soft_armed()
     hal.util->set_soft_armed(arming.is_armed() &&
                              hal.util->safety_switch_state() != AP_HAL::Util::SAFETY_DISARMED);
     DataFlash.set_vehicle_armed(hal.util->get_soft_armed());
+}
+
+// update angular acceleration and wing-modes
+void Plane::ang_update()
+{
+    gcs().send_text(MAV_SEVERITY_INFO, "ang_update() called");
 }
 
 // update AHRS system
