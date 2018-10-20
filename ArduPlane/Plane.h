@@ -850,6 +850,7 @@ private:
     bool verify_vtol_takeoff(const AP_Mission::Mission_Command &cmd);
     bool verify_vtol_land(const AP_Mission::Mission_Command &cmd);
     void do_loiter_at_location();
+    void ang_template();
     bool verify_loiter_heading(bool init);
     void exit_mission_callback();
     void mavlink_delay(uint32_t ms);

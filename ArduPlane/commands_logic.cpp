@@ -108,6 +108,12 @@ bool Plane::start_command(const AP_Mission::Mission_Command& cmd)
         do_within_distance(cmd);
         break;
 
+    // Angular Acceleration Commands
+
+    case MAV_CMD_ANG_TEMPLATE:
+        ang_template();
+        break;
+
     // Do commands
 
     case MAV_CMD_DO_CHANGE_SPEED:
@@ -325,7 +331,12 @@ bool Plane::verify_command(const AP_Mission::Mission_Command& cmd)        // Ret
         // assume parachute was released successfully
         return true;
 #endif
-        
+
+    // Angular Acceleration Commands
+
+    case MAV_CMD_ANG_TEMPLATE:
+        return true;        
+
     // do commands (always return true)
     case MAV_CMD_DO_CHANGE_SPEED:
     case MAV_CMD_DO_SET_HOME:
@@ -856,6 +867,15 @@ bool Plane::verify_altitude_wait(const AP_Mission::Mission_Command &cmd)
     }
 
     return false;
+}
+
+/********************************************************************************/
+//  Angular Acceleration commands
+/********************************************************************************/
+
+void Plane::ang_template()
+{
+    gcs().send_text(MAV_SEVERITY_INFO, "ANG_TEMPLATE");
 }
 
 /********************************************************************************/

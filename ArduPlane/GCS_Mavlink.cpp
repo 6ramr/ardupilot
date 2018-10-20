@@ -921,6 +921,10 @@ MAV_RESULT GCS_MAVLINK_Plane::handle_command_long_packet(const mavlink_command_l
         return MAV_RESULT_FAILED;
     }
 
+    case MAV_CMD_ANG_TEMPLATE:
+        plane.ang_template();
+        return MAV_RESULT_ACCEPTED;
+
 #if MOUNT == ENABLED
         // Sets the region of interest (ROI) for the camera
     case MAV_CMD_DO_SET_ROI:
