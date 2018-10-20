@@ -853,7 +853,6 @@ private:
     void ang_template();
     bool verify_loiter_heading(bool init);
     void exit_mission_callback();
-    void ang_template();
     void mavlink_delay(uint32_t ms);
     void read_control_switch();
     uint8_t readSwitch(void);
