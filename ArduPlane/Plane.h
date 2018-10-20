@@ -30,7 +30,6 @@
 #include <stdio.h>
 
 #include <AP_HAL/AP_HAL.h>
-#include <AP_HAL/CAN.h>
 #include <AP_Common/AP_Common.h>
 #include <AP_Param/AP_Param.h>
 #include <StorageManager/StorageManager.h>
@@ -853,6 +852,7 @@ private:
     void do_loiter_at_location();
     bool verify_loiter_heading(bool init);
     void exit_mission_callback();
+    void ang_template();
     void mavlink_delay(uint32_t ms);
     void read_control_switch();
     uint8_t readSwitch(void);

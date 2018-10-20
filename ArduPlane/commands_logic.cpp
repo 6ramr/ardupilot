@@ -108,6 +108,12 @@ bool Plane::start_command(const AP_Mission::Mission_Command& cmd)
         do_within_distance(cmd);
         break;
 
+    // Angular Accel Commands
+
+    case MAV_CMD_ANG_TEMPLATE:
+        ang_template();
+        break;
+
     // Do commands
 
     case MAV_CMD_DO_CHANGE_SPEED:
@@ -326,6 +332,9 @@ bool Plane::verify_command(const AP_Mission::Mission_Command& cmd)        // Ret
         return true;
 #endif
         
+    case MAV_CMD_ANG_TEMPLATE:
+        return true;
+
     // do commands (always return true)
     case MAV_CMD_DO_CHANGE_SPEED:
     case MAV_CMD_DO_SET_HOME:
@@ -893,6 +902,15 @@ bool Plane::verify_within_distance()
         return true;
     }
     return false;
+}
+
+/********************************************************************************/
+// Angular Acceleration commands
+/********************************************************************************/
+
+void Plane::ang_template()
+{
+    gcs().send_text(MAV_SEVERITY_INFO, "ANG_TEMPLATE CALLED");
 }
 
 /********************************************************************************/
