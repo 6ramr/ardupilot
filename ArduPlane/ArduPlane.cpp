@@ -134,11 +134,11 @@ void Plane::update_soft_armed()
 void Plane::ang_update()
 {
 
-#if HAL_WITH_UAVCAN
-    bool init_indicator = hal.can_mgr[0]->is_initialized();
-#else
+//#if HAL_WITH_UAVCAN
+//    bool init_indicator = hal.can_mgr[0]->is_initialized();
+//#else
     bool init_indicator = 1;
-#endif    
+//#endif    
     gcs().send_text(MAV_SEVERITY_INFO, "%d", init_indicator);
 }
 

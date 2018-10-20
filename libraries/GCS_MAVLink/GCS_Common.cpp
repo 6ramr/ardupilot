@@ -1138,7 +1138,8 @@ void GCS_MAVLINK::send_raw_ang()
 {
     uint16_t x=1,y=2,z=3;
 
-//    send_text(MAV_SEVERITY_INFO , "debug1");
+
+    //send_text(MAV_SEVERITY_INFO , "debug1");
 
     mavlink_msg_raw_ang_send(
         chan,
@@ -1147,7 +1148,7 @@ void GCS_MAVLINK::send_raw_ang()
         y,
         z);
 
-//    send_text(MAV_SEVERITY_INFO, "debug2");
+    //send_text(MAV_SEVERITY_INFO, "debug2");
 }
 
 // sub overrides this to send on-board temperature
