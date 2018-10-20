@@ -133,7 +133,13 @@ void Plane::update_soft_armed()
 // update angular acceleration and wing-modes
 void Plane::ang_update()
 {
-    gcs().send_text(MAV_SEVERITY_INFO, "ang_update() called");
+
+#if HAL_WITH_UAVCAN
+    bool init_indicator = hal.can_mgr[0]->is_initialized();
+#else
+    bool init_indicator = 1;
+#endif    
+    gcs().send_text(MAV_SEVERITY_INFO, "%d", init_indicator);
 }
 
 // update AHRS system
